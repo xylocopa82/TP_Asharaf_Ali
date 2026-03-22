@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.P. Ashrafali | A Legacy of Public Service</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300;400;600;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: '#F4F1EA', /* Background off-white */
+                        forest: '#0E291C', /* Deep rich green */
+                        gold: '#C19A5B', /* Gold accent */
+                        sage: '#6D8271', /* Muted green for borders/lines */
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Outfit"', 'sans-serif'],
+                        ml: ['"Anek Malayalam"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --reveal-time: 1.2s;
+            --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            background-color: #F4F1EA;
+            color: #0E291C;
+            overflow-x: hidden;
+        }
+
+        /* Grain overlay for texture */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Typography sizing */
+        .title-display {
+            font-size: clamp(3rem, 12vw, 9rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+        }
+
+        .title-sub {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .text-body-fine {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        /* Reveal animations ON SCROLL via IntersectionObserver */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all var(--reveal-time) var(--reveal-ease);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger setup for initial load hero */
+        .hero-reveal {
+            opacity: 0;
+            transform: translateY(60px) rotate(-2deg);
+            animation: heroReveal 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation-delay: calc(var(--delay, 0) * 0.1s);
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(0);
+            }
+        }
+
+        /* Asymmetric Masonry */
+        .masonry-irregular {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1rem;
+        }
+
+        .m-item:nth-child(1) {
+            grid-column: span 5;
+            grid-row: span 2;
+        }
+
+        .m-item:nth-child(2) {
+            grid-column: span 3;
+            grid-row: span 1;
+        }
+
+        .m-item:nth-child(3) {
+            grid-column: span 4;
+            grid-row: span 2;
+        }
+
+        .m-item:nth-child(4) {
+            grid-column: span 3;
+            grid-row: span 1;
+        }
+
+        .m-item:nth-child(5) {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        .m-item:nth-child(6) {
+            grid-column: span 4;
+            grid-row: span 2;
+        }
+
+        .m-item:nth-child(7) {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        .m-item:nth-child(8) {
+            grid-column: span 5;
+            grid-row: span 2;
+        }
+
+        .m-item:nth-child(9) {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+
+        .m-item:nth-child(10) {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        .m-item:nth-child(11) {
+            grid-column: span 5;
+            grid-row: span 1;
+        }
+
+        .m-item:nth-child(12) {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        @media (max-width: 1024px) {
+            .masonry-irregular {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .m-item {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+
+            .m-item:nth-child(1),
+            .m-item:nth-child(8) {
+                grid-column: span 2 !important;
+                grid-row: span 2 !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .masonry-irregular {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Hover image effects */
+        .image-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
+            filter: grayscale(100%) sepia(20%) hue-rotate(80deg) contrast(110%);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.03);
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        /* Language specific overrides */
+        [lang="ml"] {
+            line-height: 1.8;
+            letter-spacing: -0.01em;
+        }
+
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .bilingual-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6rem;
+            }
+
+            .bilingual-grid>div:first-child {
+                border-right: 1px solid var(--sage);
+                padding-right: 3rem;
+            }
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .useful-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .useful-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--gold);
+            transform-origin: bottom right;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .useful-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .useful-link:hover {
+            color: var(--gold);
+        }
+
+        /* Vertical text decoration */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        /* Link items styling for Links Section */
+        .link-item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(110, 130, 113, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .link-item-row:hover {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: rgba(110, 130, 113, 0.05);
+        }
+
+        .link-item-row i {
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .link-item-row:hover i {
+            transform: translateX(10px);
+            color: var(--gold);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-[60] mix-blend-difference top-0 py-6 px-4 md:px-12 pointer-events-none">
+        <div class="max-w-screen-2xl mx-auto flex justify-between items-center text-stone pointer-events-auto">
+            <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-widest uppercase">T.P. Ashrafali</a>
+            <div class="hidden md:flex space-x-12 font-sans text-sm tracking-widest uppercase items-center">
+                <a href="#about" class="hover:text-gold transition duration-300">Profile</a>
+                <a href="#timeline" class="hover:text-gold transition duration-300">Milestones</a>
+                <a href="#gallery" class="hover:text-gold transition duration-300">Gallery</a>
+                <a href="#links" class="hover:text-gold transition duration-300">Links</a>
+                <a href="#contact" class="hover:text-gold transition duration-300">Connect</a>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none transition-transform duration-300 z-[60]">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-stone z-50 flex flex-col items-center justify-center space-y-8 font-serif text-forest uppercase tracking-[0.2em] transform translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        <a href="#about" class="mobile-link text-3xl hover:text-gold transition duration-300">Profile</a>
+        <a href="#timeline" class="mobile-link text-3xl hover:text-gold transition duration-300">Milestones</a>
+        <a href="#gallery" class="mobile-link text-3xl hover:text-gold transition duration-300">Gallery</a>
+        <a href="#links" class="mobile-link text-3xl hover:text-gold transition duration-300">Links</a>
+        <a href="#contact" class="mobile-link text-3xl hover:text-gold transition duration-300">Connect</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-end pb-20 pt-32 px-4 md:px-12 overflow-hidden bg-forest">
+
+        <!-- Hero Silhouette Background -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <img src="images/Gallery/shan e millath.jpg" alt="Background silhouette"
+                class="w-full h-full object-cover object-top opacity-40 mix-blend-luminosity filter contrast-125 grayscale hero-reveal transform scale-105"
+                style="--delay: 0">
+            <!-- Fade overlays to blend image into background and ensure text is readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-forest via-transparent to-forest opacity-90"></div>
+            <div class="absolute inset-0 bg-forest/20 mix-blend-multiply"></div>
+        </div>
+
+        <!-- Abstract gradient mesh bg -->
+        <div class="absolute inset-0 z-0 opacity-40 mix-blend-screen"
+            style="background: radial-gradient(circle at 80% 20%, rgba(193, 154, 91, 0.4) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(14, 41, 28, 0.8) 0%, transparent 40%);">
+        </div>
+
+        <div class="relative z-10 max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+            <!-- English -->
+            <div class="col-span-12 md:col-span-7">
+                <p class="hero-reveal text-gold font-sans tracking-[0.2em] uppercase text-sm md:text-md mb-6"
+                    style="--delay: 1">National General Secretary, IUMYL</p>
+                <h1 class="hero-reveal font-serif title-display text-stone leading-[0.85] mb-2" style="--delay: 2">
+                    T.P. <br />Ashrafali
+                </h1>
+            </div>
+            <!-- Malayalam -->
+            <div
+                class="col-span-12 md:col-span-5 md:text-right pb-4 border-l md:border-l-0 md:border-r border-gold/30 pl-4 md:pl-0 md:pr-6">
+                <h2 lang="ml" class="hero-reveal font-ml title-sub text-stone mb-2 font-bold" style="--delay: 4">ടി.പി.
+                    അഷറഫലി</h2>
+                <p lang="ml" class="hero-reveal font-ml text-gold/80 text-lg md:text-xl" style="--delay: 5">ദേശീയ ജനറൽ
+                    സെക്രട്ടറി, മുസ്ലീം യൂത്ത് ലീഗ്</p>
+            </div>
+        </div>
+
+        <!-- Decorative vertical line -->
+        <div class="absolute left-12 bottom-0 w-[1px] h-32 bg-gold/50 hidden md:block"></div>
+        <div
+            class="absolute left-8 bottom-4 text-gold/50 font-sans text-xs tracking-[0.3em] vertical-text hidden md:block">
+            EST. PUBLIC SERVICE</div>
+    </section>
+
+    <!-- Profile Section (Preserving identical text) -->
+    <section id="about" class="py-32 px-4 md:px-12 relative">
+        <div class="max-w-screen-2xl mx-auto relative z-10">
+            <h2
+                class="font-serif text-5xl md:text-7xl text-forest mb-20 italic font-light border-b border-forest/20 pb-8 reveal">
+                A Journey of <br />Public Service</h2>
+
+            <div class="bilingual-grid">
+                <!-- English Content -->
+                <div class="font-sans text-forest/90 story-text text-lg font-light reveal">
+                    <p class="font-serif text-3xl text-forest mb-8 leading-tight"><strong>T.P. Ashrafali: The Valiant
+                            Face of Student Politics</strong></p>
+                    <p>Reminiscent of the stirring lines of poet P. Bhaskaran, T.P. Ashrafali's political journey is one
+                        characterized by intense passion and relentless struggles. It is a journey of unwavering public
+                        service, deeply rooted in understanding the true essence of social work from both within and
+                        without. Originating from student politics, his journey traversed through the youth movement and
+                        further into to the responsibilities within mass political movements, sculpting a dedicated
+                        political life.</p>
+
+                    <p class="font-serif text-2xl text-forest mt-12 mb-4"><strong>Leader of the Masses</strong></p>
+                    <p>Born on May 12, 1982, to T.P. Abdullah Musliyar and Fathima in Edakkara, Nilambur, Ashrafali
+                        meticulously built a strong leadership path ascending through the ranks. His educational
+                        foundation spans Edakkara Govt. Higher Secondary School, Sree Vivekananda Higher Secondary
+                        School, Chungathara Marthoma College, EMS Memorial Co-operative College Thali, and SAFI
+                        Institute Vazhayur. He ignited his public life as the MSF General Secretary of the Edakkara
+                        Musliyarangadi unit. Demonstrating profound sincerity and devotion to the people, he
+                        systematically fulfilled responsibilities ranging from Panchayat Secretary and President, to
+                        Constituency Joint Secretary and President.</p>
+                    <p>In 2002, marking a historic victory at Chungathara Marthoma College—an institution historically
+                        considered an SFI stronghold—Ashrafali, then Constituency Treasurer, was elected University
+                        Union Councilor by a margin of 13 votes. This triumph became the catalyst for the KSU-MSF
+                        alliance to subsequently capture the University Union.</p>
+
+                    <p class="font-serif text-2xl text-forest mt-12 mb-4"><strong>Unwavering Fighting Spirit</strong>
+                    </p>
+                    <p>He subsequently entered an era of fierce political activism globally as the MSF Malappuram
+                        District Secretary, spearheading relentless protests and resistance. His bold actions, including
+                        a black flag demonstration against controversial remarks made by the then Opposition Leader V.S.
+                        Achuthanandan regarding Malappuram district, brought him significant statewide prominence.</p>
+                    <p>As MSF State Joint Secretary at Calicut University, he tirelessly opened new fronts of agitation,
+                        fighting uncompromisingly for student causes. Whether staging protests against late-arriving
+                        university staff or initiating strategic blockades of the examination block, his dedication to
+                        advocating for students remained paramount.</p>
+                    <p>Elected as MSF State General Secretary in 2009, he entered a crucial phase that deeply impacted
+                        and matured his political trajectory. A monumental milestone was bringing former President Dr.
+                        A.P.J. Abdul Kalam to the 2011 MSF conference at Calicut University, elevating Ashrafali’s
+                        leadership stature immensely. At this very venue, Dr. Kalam announced a Civil Service
+                        Examination Coaching Program in the name of Shihab Thangal, igniting a wave of inspiration among
+                        students. The same conference proudly marked the inception of 'Haritha' (the female student
+                        wing), 'Medifed', and 'Techfed', cementing the invaluable nature of his interventions.</p>
+
+                    <p class="font-serif text-2xl text-forest mt-12 mb-4"><strong>Champion of Development
+                            Projects</strong></p>
+                    <p>Elected MSF State President in 2012, Ashrafali solidified his enduring presence in Kerala
+                        politics. Achieving historical precedence, he became the first Syndicate member in MSF's
+                        history. He captured public affection through impactful, resonant initiatives such as the
+                        'Unarthu Jatha' awareness campaign against child abuse, campaigns supporting Endosulfan victims,
+                        the 'Neerkkudam' project providing water for birds during summer, and launching 'Missive', the
+                        organizational mouthpiece.</p>
+                    <p>In 2015, carving out a new path of public service, he secured a spectacular victory traversing
+                        from the Karuvarakundu division to the Malappuram District Panchayat. For five remarkable years,
+                        he stood at the helm of diverse development projects, his steadfast efforts and capabilities
+                        becoming a shining beacon that never faltered amidst adversities.</p>
+
+                    <p class="font-serif text-2xl text-forest mt-12 mb-4"><strong>Moving Forward with Vigor</strong></p>
+                    <p>With the formation of the MSF National Committee in 2017, T.P. Ashrafali was deservedly elected
+                        its inaugural National President. He played a pivotal frontline role in expanding the movement's
+                        footprint into central universities and implementing crucial educational aids like school kits,
+                        scholarships, and fellowships. Further highlighting his leadership abilities, he was selected as
+                        India's representative to participate in the prestigious International Visitor Leadership
+                        Program organized by the US State Department during the 2020 American Presidential election.</p>
+                    <p>Currently serving as the National General Secretary of the Muslim Youth League, Ashrafali is
+                        dynamically advancing his academic pursuits, engaging in doctoral research (PhD) in Islamic
+                        Studies at Jamia Hamdard University, New Delhi. Empowered by the relentless trust and profound
+                        support of the masses, his resolute journey moving forward aims to enshrine his distinctive mark
+                        in the public sphere whilst steadfastly upholding core political values. His family comprises
+                        his wife Tabassum, children Abdullah Salim Bin Ali, Rashiq Bin Ali, and Aisa Fatima Bint Ali.
+                        His brother Salim Edakkara serves as the State Secretary of the Sunni Yuvajana Sangam (SYS).</p>
+                </div>
+
+                <!-- Malayalam Content -->
+                <div lang="ml" class="font-ml text-forest/90 text-[1.15rem] story-text reveal">
+                    <h2 class="font-bold text-4xl text-forest mb-8 leading-tight">ടിപി അഷറഫലി : പോരാട്ടമുഖം</h2>
+                    <p>ഉയരും ഞാൻ നാടാകെ, പടരും ഞാൻ, ഒരു പുത്തനുയിർ നാടിനേകിക്കൊണ്ടുയരും വീണ്ടും എന്ന പി. ഭാസ്കരൻ കവിതയെ
+                        അനുസ്മരിക്കുംവിധം തീക്ഷണവും സമരോജ്ജ്വലവുമായ ഒരു രാഷ്ട്രീയജീവിതമാണ് ടി.പി. അഷറഫലിയുടേത്.
+                        പൊതുപ്രവർത്തനത്തിന്റെ അകവും പുറവും അറിഞ്ഞുള്ള ജനസേവനയാത്ര. വിദ്യാർഥിരാഷ്ട്രീയത്തിൽനിന്ന് ആരംഭം
+                        കുറിച്ച ആ പൊതുപ്രവർത്തനജീവിതം യുവജനപ്രസ്ഥാനത്തിലേക്കും പിന്നീട് ബഹുജനരാഷ്ട്രീയത്തിന്റെ
+                        ഭാരവാഹിത്വങ്ങളിലേക്കും സഞ്ചരിച്ചപ്പോഴും അകമഴിഞ്ഞ ഒരു രാഷ്ട്രീയജീവിതത്തിനുടമയായി.
+                        ഉത്തരവാദിത്തങ്ങൾ മാറിവന്നപ്പോഴും സമരതന്ത്രങ്ങളുടെ തീച്ചൂളകളിലേക്ക് സ്വയം ഇറങ്ങിച്ചെന്നപ്പോഴും
+                        ജനഹൃദയങ്ങളുടെ ഇഷ്ടം നേടിയെടുക്കാനും ജനങ്ങൾക്കിടയിലൊരാളായി തുടരാനും അദ്ദേഹം എന്നും പരിശ്രമിച്ചു.
+                    </p>
+
+                    <p class="font-bold text-2xl text-forest mt-12 mb-4">ജനമനസ്സുകളുടെ അധിപൻ</p>
+                    <p>സംഘടനാപ്രവർത്തനങ്ങളിലൂടെ സുദൃഢമായ നേതൃപാത പണിത അഷറഫലി 1982 മെയ് 12ന് ടി.പി. അബ്ദുള്ള
+                        മുസ്ല്യാരുടെയും ഫാത്തിമ്മയുടെയും മകനായി നിലമ്പൂരിലെ എടക്കരയിലാണ് ജനിച്ചത്. എടക്കര ഗവ.
+                        ഹയർസെക്കന്ററി സ്കൂൾ, ശ്രീ വിവേകാനന്ദ ഹയർ സെക്കന്ററി സ്കൂൾ, ചുങ്കത്തറ മാർത്തോമ കോളേജ്, EMS
+                        മെമ്മോറിയൽ കോപ്പറേറ്റീവ് കോളേജ് തളി, സാഫി ഇൻസ്റ്റിറ്റിയൂട്ട് വാഴയൂർ എന്നിവിടങ്ങളിൽ
+                        വിദ്യാഭ്യാസം.എംഎസ്എഫിന്റെ എടക്കര മുസ്ലിയാരങ്ങാടി യൂണിറ്റ് ജനറൽ സെക്രട്ടറിയായാണ്
+                        പൊതുപ്രവർത്തനത്തിലേക്ക് അദ്ദേഹം നാന്ദി കുറിച്ചത്. തുടർന്ന് പഞ്ചായത്ത് ജനറൽ സെക്രട്ടറി,
+                        പ്രസിഡന്റ്, നിയോജകമണ്ഡലം ജോയിന്റ് സെക്രട്ടറി, പ്രസിഡന്റ് തുടങ്ങിയ ഉത്തരവാദിത്തങ്ങൾ നിർവഹിച്ചു.
+                        ഓരോ നേതൃത്വം ഏറ്റെടുക്കുമ്പോഴും ജനങ്ങളോടും പാർട്ടിയോടും തികഞ്ഞ ആത്മാർഥതയും സ്നേഹവും പുലർത്താൻ
+                        അഷറഫലി പ്രയത്നിച്ചു.</p>
+                    <p>2002 കാലം. എസ്.എഫ്.ഐയുടെ ചെങ്കോട്ടയെന്ന് പേരുകേട്ട ചുങ്കത്തറ മാർത്തോമ കോളേജ്. നിയോജകമണ്ഡലം ട്രഷറർ
+                        ആയിരുന്ന അഷറഫലി 13 വോട്ടിന്റെ ചരിത്രവിജയത്തിൽ യൂണിവേഴ്സിറ്റി യൂണിയൻ കൗൺസിലറായി
+                        തിരഞ്ഞെടുക്കപ്പെടുന്നു. പിൽക്കാലത്ത് കെഎസ്യു- എംഎസ്എഫ് സഖ്യം യൂണിവേഴ്സിറ്റി യൂണിയൻ
+                        പിടിച്ചെടുക്കാൻ കാരണമായ വിജയത്തിനായിരുന്നു 2002ൽ അഷറഫലി വഴിമരുന്നിട്ടത്.</p>
+
+                    <p class="font-bold text-2xl text-forest mt-12 mb-4">മുട്ടുമടക്കാത്ത പോരാട്ടവീര്യം</p>
+                    <p>തുടർന്ന് സമരതീവ്രമായ ഒരു രാഷ്ട്രീയകാലത്തിലേക്കാണ് അഷറഫലി കാലെടുത്തുവെച്ചത്. എംഎസ്.എഫിന്റെ
+                        മലപ്പുറം ജില്ലാ സെക്രട്ടറിയായി തിരഞ്ഞെടുക്കപ്പെടുകയും പ്രതിഷേധങ്ങളുടെയും മുട്ടുമടക്കാത്ത
+                        ചെറുത്തുനിൽപുകളുടെയും പോരാട്ടകാലത്തിന് നേതൃത്വം വഹിക്കുകയും ചെയ്തു. അക്കാലത്ത്
+                        പ്രതിപക്ഷനേതാവായിരുന്ന വിഎസ് അച്യുതാനന്ദന്റെ മലപ്പുറം ജില്ലാ പരാമർശത്തിനെതിരെ കരിങ്കൊടി
+                        പ്രതിഷേധവുമായി മുന്നിട്ടിറങ്ങി. ഈ പോരാട്ടവീര്യം അദ്ദേഹത്തെ സംസ്ഥാനരാഷ്ട്രീയത്തിലും
+                        ശ്രദ്ധേയനാക്കി.</p>
+                    <p>വിദ്യാർത്ഥികൾക്കിടയിലും പുതിയ സമരമുഖങ്ങൾ തുറക്കാൻ അഷറഫലിക്ക് കഴിഞ്ഞു. കാലിക്കറ്റ് സർവകലാശാലയിൽ
+                        എംഎസ്എഫ് സംസ്ഥാന ജോയിന്റ് സെക്രട്ടറി ആയിരുന്ന കാലത്ത് സർവകലാശാല ജീവനക്കാർ വൈകി വരുന്നതിനെതിരെ
+                        നടത്തിയ സമരം ഉൾപ്പെടെ വിദ്യാർഥികളുടെ ഓരോ വിഷയത്തിലും അക്ഷീണമായ ഇടപെടലുകൾ അദ്ദേഹം നടത്തി.
+                        പരീക്ഷാഭവൻ ഉപരോധം ഉൾപ്പെടെയുള്ള സമരതന്ത്രങ്ങളുപയോഗിച്ച് വിദ്യാർഥി പ്രശ്നങ്ങളിൽ
+                        വിട്ടുവീഴ്ചയില്ലാത്ത പോരാട്ടം നടത്തി.</p>
+                    <p>2009 കാലഘട്ടം. എംഎസ്എഫ് സംസ്ഥാന ജനറൽ സെക്രട്ടറി ആയി തിരഞ്ഞെടുക്കപ്പെട്ട സമയം. അഷറഫലിയുടെ
+                        രാഷ്രീയഭാവിയെ ശക്തിപ്പെടുത്തുന്നതും പക്വതയുള്ളതാക്കുന്നതുമായ ഒരു കാലഘട്ടത്തിനാണ് അന്ന് തുടക്കം
+                        കുറിക്കപ്പെട്ടത്. 2011ൽ കാലിക്കറ്റ് സർവകലാശാലയിൽ നടന്ന എംഎസ്എഫ് സമ്മേളനത്തിൽ മുൻ രാഷ്ട്രപതി
+                        എ.പി.ജെ. അബ്ദുൾ കലാമിനെ പങ്കെടുപ്പിച്ചത് വലിയ ശ്രദ്ധ പിടിച്ചുപറ്റിയ നേട്ടമായിരുന്നു. അഷറഫലിയുടെ
+                        ഭാരവാഹിത്വത്തെ ചോദ്യംചെയ്യാനിടയില്ലാത്ത വിധം മഹത്വത്തിലേക്ക് ഉയർത്തപ്പെട്ടതിന്റെ ആദ്യപടി! ഒപ്പം
+                        ആ വേദിയിൽവെച്ച് ശിഹാബ് തങ്ങളുടെ നാമധേയത്തിൽ സിവിൽ സർവീസ് പരീക്ഷ പരിശീലനപദ്ധതി കലാം
+                        പ്രഖ്യാപിച്ചത് വിദ്യാർഥികളെയും പ്രവർത്തകരെയും ഒന്നടങ്കം പ്രചോദിപ്പിക്കുന്നതും ആവേശം
+                        കൊള്ളിക്കുന്നതുമായി. അതേ സമ്മേളനത്തിലാണ് വിദ്യാർഥിനി സംഘടനയായ 'ഹരിത'യുടെ പിറവിയും. എംഎസ്എഫിന്റെ
+                        മെഡിക്കൽ വിദ്യാർഥി വിഭാഗമായ മെഡിഫെഡ്, ടെക്നിക്കൽ വിഭാഗമായ ടെക്ഫെഡ് എന്നിവയും ആ സമ്മേളനവേദിയിൽ
+                        പ്രഖ്യാപിക്കപ്പെട്ടു. അഷറഫലി എന്ന പൊതുപ്രവർത്തകന്റെ ഇടപെടൽ എത്രത്തോളം വിലപ്പെട്ടതാണെന്ന്
+                        തെളിയിക്കുന്ന നേട്ടങ്ങൾ!</p>
+
+                    <p class="font-bold text-2xl text-forest mt-12 mb-4">വികസനപദ്ധതികളുടെ അമരക്കാരൻ</p>
+                    <p>2012ൽ എംഎസ്എഫിന്റെ സംസ്ഥാന അധ്യക്ഷനായി തിരഞ്ഞെടുക്കപ്പെട്ടതോടെ കേരള രാഷ്ട്രീയത്തിലെ നിരന്തര
+                        സാന്നിധ്യമായി അഷറഫലി മാറി. എംഎസ്എഫിന്റെ ചരിത്രത്തിലെ ആദ്യ സിൻഡിക്കേറ്റ് അംഗം എന്ന നേട്ടവും
+                        അഷറഫലി സ്വന്തമാക്കി. തുടർന്ന് ജനശ്രദ്ധ പിടിച്ചുപറ്റുന്ന ഒരുപിടി പ്രവർത്തനങ്ങളിലൂടെ അദ്ദേഹം
+                        തിരമാല കണക്കെ ജനഹൃദയങ്ങളിൽ ആർത്തിരമ്പി. കുട്ടികൾക്കെതിരെയുള്ള അക്രമങ്ങളെക്കുറിച്ച് ബോധവൽകരണം
+                        നടത്തുന്ന ഉണർത്തുജാഥയും എൻഡോസൾഫാൻ ദുരിതബാധിതർക്കായി ക്യാമ്പയിനുകൾ, പറവകൾക്കൊരു നീർക്കുടം പദ്ധതി,
+                        സംഘടനാ മുഖപത്രികയായ മിസീവിന്റെ ആരംഭം എന്നിവയെല്ലാം അഷറഫലിയുടെ രാഷ്ട്രീയയാത്രയ്ക്ക് ഊർജമേകിയ
+                        പ്രവർത്തനങ്ങളായിരുന്നു.</p>
+                    <p>2015ൽ മലപ്പുറം ജില്ലാ പഞ്ചായത്തിലേക്ക് കരുവാരക്കുണ്ട് ഡിവിഷനിൽനിന്ന് തിളക്കമാർന്ന വിജയത്തോടെ
+                        പൊതുപ്രവർത്തനത്തിന്റെ പുതിയ വഴികളിലേക്ക് അഷറഫലി നടന്നുകയറി. അഞ്ചുവർഷം വിവിധ വികസനപദ്ധതികളുടെ
+                        അമരക്കാരനായി നിലകൊണ്ടു. പ്രതിസന്ധികളിൽ തളരാതെ കഴിവും പ്രയത്നവും മൂലധനമാക്കി അദ്ദേഹം നടത്തിയ
+                        പദ്ധതികൾ ഒരിക്കലും തിളക്കം മങ്ങാതെ നിൽക്കുന്നു.</p>
+
+                    <p class="font-bold text-2xl text-forest mt-12 mb-4">വീറോടെ മുന്നോട്ട്</p>
+                    <p>2017ൽ എംഎസ്എഫ് ദേശീയ കമ്മിറ്റി രൂപീകരിച്ചപ്പോൾ ആദ്യ ദേശീയ പ്രസിഡന്റായി തിരഞ്ഞെടുക്കപ്പെട്ടതും ടി
+                        പി അഷറഫലിയായിരുന്നു. കേന്ദ്ര സർവകലാശാലകളിലേക്ക് എംഎസ്എഫിന്റെ പ്രവർത്തനം വ്യാപിപ്പിക്കുന്നതിൽ
+                        മുന്നിരയിൽ നിന്നതും അഷറഫലിയായിരുന്നു. വിദ്യാർഥികൾക്ക് സ്കൂൾ കിറ്റുകളും സ്കോളർഷിപ്പുകളും
+                        ഫെലോഷിപ്പുകളും നടപ്പാക്കുന്നതിൽ അദ്ദേഹത്തിന്റെ പങ്ക് ചെറുതല്ലായിരുന്നു. 2020ൽ അമേരിക്കൻ
+                        പ്രസിഡന്റ് ഇലക്ഷൻ അടിസ്ഥാനമാക്കി യുഎസ് സ്റ്റേറ്റ് ഡിപാർട്മെന്റ് സംഘടിപ്പിച്ച ഇന്റർനാഷണൽ വിസിറ്റർ
+                        ലീഡർഷിപ്പ് പ്രോഗ്രാമിന്റെ ഭാഗമായി ഇന്ത്യയുടെ പ്രതിനിധിയായി പങ്കെടുക്കാനുള്ള അവസരവും അഷറഫലിക്ക്
+                        ലഭിച്ചു.</p>
+                    <p>നിലവിൽ മുസ്ലീം യൂത്ത് ലീഗിന്റെ ദേശീയ ജനറൽ സെക്രട്ടറിയായി പ്രവർത്തിക്കുന്ന അഷറഫലി ന്യൂഡൽഹിയിലെ
+                        ജാമിഅ ഹംദർദ് സർവകലാശാലയിൽ ഇസ്ലാമിക് സ്റ്റഡീസിൽ ഗവേഷണം ചെയ്യുന്നു. ജനങ്ങളുടെ വിശ്വാസവും
+                        പിന്തുണയും കരുത്താക്കി പൊതുരംഗത്ത് തന്റേതായ വ്യക്തിമുദ്ര പതിപ്പിക്കാനും രാഷ്ട്രീയമൂല്യങ്ങളെ
+                        മുറുകെപ്പിടിച്ച് പോരാടാനുമുള്ള സഞ്ചാരദിശയിലാണ് അഷറഫലി. ഭാര്യ തബസു. മക്കൾ അബ്ദുള്ള സാലിം ബിൻ അലി,
+                        റാഷിഖ് ബിൻ അലി, ഐസ ഫാത്തിമ ബിന്ത് അലി. സഹോദരൻ സലീം എടക്കര സുന്നി യുവജന സംഘം സംസ്ഥാന
+                        സെക്രട്ടറിയാണ്</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section with Asymmetric Design -->
+    <section id="timeline"
+        class="py-24 px-4 md:px-12 bg-forest text-stone border-t border-gold/10 relative overflow-hidden">
+        <!-- Background Typography graphic -->
+        <div
+            class="absolute -left-20 top-10 text-[18rem] font-serif opacity-5 italic whitespace-nowrap pointer-events-none select-none">
+            Milestones
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <div>
+                <h2 class="font-serif text-5xl md:text-7xl mb-4 italic font-light reveal">Landmarks <br />in Service
+                </h2>
+                <h3 lang="ml" class="text-3xl font-ml text-gold mb-16 font-bold reveal">നാഴികക്കല്ലുകളും നേട്ടങ്ങളും
+                </h3>
+
+                <!-- Timeline block English -->
+                <div class="relative border-l border-gold/30 pl-8 pb-8 space-y-16 reveal">
+                    <div class="relative">
+                        <div class="absolute w-2 h-2 rounded-full bg-gold -left-[37px] top-2"></div>
+                        <h4 class="text-xl font-serif text-gold italic">Current Role</h4>
+                        <p class="text-2xl font-bold font-sans mt-2 mb-2 uppercase tracking-wide">National General
+                            Secretary, IUMYL</p>
+                        <p class="text-stone/70 font-sans font-light">Representing youth leadership at the national
+                            level. Also pursuing PhD in Islamic Studies at Jamia Hamdard University.</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute w-2 h-2 rounded-full bg-white/30 -left-[37px] top-2"></div>
+                        <h4 class="text-xl font-serif text-gold italic">2020</h4>
+                        <p class="text-2xl font-bold font-sans mt-2 mb-2 uppercase tracking-wide">US International
+                            Visitor Leadership Program</p>
+                        <p class="text-stone/70 font-sans font-light">Represented India in the prestigious US State
+                            Department program based on the American Presidential election.</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute w-2 h-2 rounded-full bg-white/30 -left-[37px] top-2"></div>
+                        <h4 class="text-xl font-serif text-gold italic">2017</h4>
+                        <p class="text-2xl font-bold font-sans mt-2 mb-2 uppercase tracking-wide">First National
+                            President, MSF</p>
+                        <p class="text-stone/70 font-sans font-light">Spearheaded the expansion of the movement to
+                            various central universities across India.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline block Malayalam -->
+            <div class="pt-0 lg:pt-32 relative reveal">
+                <div class="relative border-l border-gold/30 pl-8 pb-8 space-y-16 font-ml">
+                    <div class="relative">
+                        <div class="absolute w-2 h-2 rounded-full bg-gold -left-[37px] top-3"></div>
+                        <h4 class="text-lg font-serif text-gold italic">നിലവിലെ പദവി</h4>
+                        <p class="text-3xl font-bold mt-2 mb-2 leading-tight text-white">ദേശീയ ജനറൽ സെക്രട്ടറി,
+                            <br>മുസ്ലീം യൂത്ത് ലീഗ്
+                        </p>
+                        <p class="text-stone/70 text-lg">ന്യൂഡൽഹിയിലെ ജാമിഅ ഹംദർദ് സർവകലാശാലയിൽ റിസർച്ച്
+                            പൂർത്തിയാക്കുന്നു.</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute w-2 h-2 rounded-full bg-white/30 -left-[37px] top-3"></div>
+                        <h4 class="text-lg font-serif text-gold italic">2020</h4>
+                        <p class="text-3xl font-bold mt-2 mb-2 text-white">വിസിറ്റർ ലീഡർഷിപ്പ് പ്രോഗ്രാം (USA)</p>
+                        <p class="text-stone/70 text-lg">യുഎസ് സ്റ്റേറ്റ് ഡിപാർട്മെന്റ് സംഘടിപ്പിച്ച പ്രോഗ്രാമിൽ
+                            ഇന്ത്യയുടെ പ്രതിനിധിയായി പങ്കെടുത്തു.</p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute w-2 h-2 rounded-full bg-white/30 -left-[37px] top-3"></div>
+                        <h4 class="text-lg font-serif text-gold italic">2015</h4>
+                        <p class="text-3xl font-bold mt-2 mb-2 text-white">ജില്ലാ പഞ്ചായത്ത് മെമ്പർ, മലപ്പുറം</p>
+                        <p class="text-stone/70 text-lg">കരുവാരക്കുണ്ട് ഡിവിഷനിൽനിന്ന് വിജയം. അഞ്ചുവർഷം വിവിധ
+                            വികസനപദ്ധതികൾക്ക് നേത്രത്വം നൽകി.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Irregular Masonry) -->
+    <section id="gallery" class="py-32 px-4 md:px-12 bg-stone">
+        <div class="max-w-screen-2xl mx-auto">
+            <div
+                class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between border-b border-forest/20 pb-8 reveal">
+                <div>
+                    <h2 class="font-serif text-5xl md:text-7xl text-forest italic font-light">Gallery</h2>
+                    <h3 lang="ml" class="text-3xl font-bold text-forest mt-4 font-ml">ചിത്രശാല</h3>
+                </div>
+                <p class="text-forest/70 font-sans mt-6 md:mt-0 font-light text-xl max-w-sm text-right">A collection of
+                    moments from public addresses, campaigns, and life.</p>
+            </div>
+
+            <!-- The 12 Images -->
+            <div class="masonry-irregular reveal">
+                <div class="m-item image-container"><img src="images/Gallery/USA2.jpeg"
+                        alt="T.P. Ashrafali gallery view"></div>
+                <div class="m-item image-container"><img src="images/Gallery/TP_Asharafali.jpg"
+                        alt="T.P. Ashrafali portrait"></div>
+                <div class="m-item image-container"><img src="images/Gallery/asd.jpeg" alt="T.P. Ashrafali event"></div>
+                <div class="m-item image-container"><img src="images/Gallery/cvbn.jpeg" alt="T.P. Ashrafali meeting">
+                </div>
+                <div class="m-item image-container"><img src="images/Gallery/fdhgfh.jpeg" alt="T.P. Ashrafali speaking">
+                </div>
+                <div class="m-item image-container"><img src="images/Gallery/shan e millath.jpg"
+                        alt="T.P. Ashrafali portrait style"></div>
+                <div class="m-item image-container"><img src="images/Gallery/fxgfg.jpeg" alt="T.P. Ashrafali gathering">
+                </div>
+                <div class="m-item image-container"><img src="images/Gallery/at usa.png" alt="T.P. Ashrafali in USA">
+                </div>
+                <div class="m-item image-container"><img src="images/Gallery/lhgf.jpeg"
+                        alt="T.P. Ashrafali public address"></div>
+                <div class="m-item image-container"><img src="images/Gallery/trytuyu.jpeg"
+                        alt="T.P. Ashrafali in frame"></div>
+                <div class="m-item image-container"><img src="images/Gallery/mbifl26.jfif"
+                        alt="T.P. Ashrafali group photo"></div>
+                <div class="m-item image-container"><img src="images/Gallery/yrt.jpeg" alt="T.P. Ashrafali action shot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Useful Links Section (NEW) -->
+    <section id="links" class="py-24 px-4 md:px-12 bg-stone border-t border-forest/10">
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 reveal">
+            <div class="lg:col-span-4">
+                <h2 class="font-serif text-4xl md:text-5xl text-forest italic font-light mb-4">Recommended
+                    <br />Platforms
+                </h2>
+                <h3 lang="ml" class="text-2xl font-bold text-forest/70 font-ml">പ്രധാന ലിങ്കുകൾ</h3>
+            </div>
+            <div
+                class="lg:col-span-8 font-sans text-xl uppercase tracking-widest text-forest/80 font-semibold space-y-0">
+                <a href="https://iumlkerala.org/" class="link-item-row block group">
+                    <span>IUML Kerala Website</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="https://www.facebook.com/iumlkerala/" class="link-item-row block group">
+                    <span>IUML Kerala Facebook</span>
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/iumlkerala" class="link-item-row block group">
+                    <span>IUML Kerala X Profile</span>
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/iumlkerala/" class="link-item-row block group">
+                    <span>IUML Kerala Instagram</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@iumlkerala" class="link-item-row block group">
+                    <span>IUML Kerala YouTube</span>
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://chandrikadaily.com/" class="link-item-row block group">
+                    <span>Chandrika Daily</span>
+                    <i class="fa-regular fa-newspaper"></i>
+                </a>
+                <a href="https://chandrikadaily.com/epaper" class="link-item-row block group">
+                    <span>Chandrika Daily E-Paper</span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Footer & Connect -->
+    <footer id="contact" class="bg-forest text-stone pt-24 pb-12 px-4 md:px-12 relative overflow-hidden">
+        <!-- Abstract shape -->
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-gold/5 blur-[150px] pointer-events-none rounded-full"></div>
+
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10 mb-20 reveal">
+            <div>
+                <h3 class="font-serif text-5xl mb-2 italic">Get in Touch</h3>
+                <div lang="ml" class="font-ml text-2xl text-gold mb-10 font-bold">ബന്ധപ്പെടാൻ</div>
+
+                <div
+                    class="space-y-6 font-sans font-light tracking-wide text-lg text-stone/80 border-l border-gold/30 pl-6">
+                    <div>
+                        <span class="block text-xs uppercase text-gold font-bold tracking-[0.2em] mb-1">Email
+                            Inquiry</span>
+                        <a href="mailto:aliasharafali@gmail.com" class="useful-link">aliasharafali@gmail.com</a>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase text-gold font-bold tracking-[0.2em] mb-1">Direct
+                            Contact</span>
+                        <a href="tel:+919446946080" class="useful-link">+91 9446946080</a>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase text-gold font-bold tracking-[0.2em] mb-1">Locations</span>
+                        <span>New Delhi | Kerala</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:text-right flex flex-col md:items-end justify-between">
+                <div>
+                    <h3 class="font-serif text-3xl mb-1 italic">Networks</h3>
+                    <div class="flex space-x-6 md:justify-end mt-4 text-2xl text-gold">
+                        <a href="#" class="hover:-translate-y-2 transition transform duration-300"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="hover:-translate-y-2 transition transform duration-300"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="hover:-translate-y-2 transition transform duration-300"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:-translate-y-2 transition transform duration-300"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="mt-16 md:mt-0 font-serif italic text-stone/40 text-sm">
+                    T.P. Ashrafali &copy; 2024. Public Service Archive.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Animation
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+
+            // Mobile Navigation Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = btn.querySelector('i');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    overlay.classList.remove('translate-y-full');
+                    overlay.classList.add('translate-y-0');
+                    if(icon) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                    }
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    overlay.classList.remove('translate-y-0');
+                    overlay.classList.add('translate-y-full');
+                    if(icon) {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if(btn) btn.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
