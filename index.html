@@ -3,8 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta property="og:title" content="T.P. Asharafali | National General Secretary, IUMYL">
+    <meta property="og:description"
+        content="Official profile of T.P. Asharafali, Kerala politician and Muslim Youth League leader.">
+    <meta property="og:image" content="https://www.tpasharafali.com/images/Gallery/TP_Asharafali.jpg">
+    <meta property="og:url" content="https://www.tpasharafali.com">
+    <meta property="og:type" content="profile">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="T.P. Asharafali | IUMYL National General Secretary">
+    <meta name="twitter:image" content="https://www.tpasharafali.com/images/Gallery/TP_Asharafali.jpg">
+    <meta name="description"
+        content="Official website of T.P. Asharafali, National General Secretary of Muslim Youth League (IUMYL), politician from Kerala, and PhD researcher at Jamia Hamdard University, New Delhi.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T.P. Asharafali | A Legacy of Public Service</title>
+    <title>T.P. Asharafali | National General Secretary, Muslim Youth League | Kerala Politician</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -640,18 +651,20 @@
 
             <!-- The 12 Images -->
             <div class="masonry-irregular reveal">
-                <div class="m-item image-container"><img src="images/Gallery/USA2.jpeg"
-                        alt="T.P. Asharafali gallery view"></div>
-                <div class="m-item image-container"><img src="images/Gallery/TP_Asharafali.jpg"
-                        alt="T.P. Asharafali portrait"></div>
-                <div class="m-item image-container"><img src="images/Gallery/asd.jpeg" alt="T.P. Ashrafali event"></div>
-                <div class="m-item image-container"><img src="images/Gallery/cvbn.jpeg" alt="T.P. Ashrafali meeting">
+                <div class="m-item image-container"><img src="images/Gallery/USA2.jpeg" alt="T.P. Asharafali in USA">
                 </div>
-                <div class="m-item image-container"><img src="images/Gallery/fdhgfh.jpeg" alt="T.P. Ashrafali speaking">
+                <div class="m-item image-container"><img src="images/Gallery/TP_Asharafali.jpg"
+                        alt="T.P. Asharafali speaking at MSF conference, Malappuram, Kerala"></div>
+                <div class="m-item image-container"><img src="images/Gallery/asd.jpeg" alt="T.P. Asharafali in USA">
+                </div>
+                <div class="m-item image-container"><img src="images/Gallery/cvbn.jpeg" alt="T.P. Ashrafali in USA">
+                </div>
+                <div class="m-item image-container"><img src="images/Gallery/fdhgfh.jpeg"
+                        alt="T.P. Ashrafali speaking at New Delhi">
                 </div>
                 <div class="m-item image-container"><img src="images/Gallery/shan e millath.jpg"
-                        alt="T.P. Asharafali portrait style"></div>
-                <div class="m-item image-container"><img src="images/Gallery/fxgfg.jpeg" alt="T.P. Ashrafali gathering">
+                        alt="T.P. Asharafali at Shan e Millath conference, Malappuram, Kerala"></div>
+                <div class="m-item image-container"><img src="images/Gallery/fxgfg.jpeg" alt="T.P. Ashrafali visit USA">
                 </div>
                 <div class="m-item image-container"><img src="images/Gallery/at usa.png" alt="T.P. Ashrafali in USA">
                 </div>
@@ -762,60 +775,27 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Scroll Reveal Animation
-            const reveals = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            reveals.forEach(reveal => {
-                observer.observe(reveal);
-            });
-
-            // Mobile Navigation Toggle
-            const btn = document.getElementById('mobile-menu-btn');
-            const icon = btn.querySelector('i');
-            const overlay = document.getElementById('mobile-menu-overlay');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-            let isMenuOpen = false;
-
-            function toggleMenu() {
-                isMenuOpen = !isMenuOpen;
-                if (isMenuOpen) {
-                    overlay.classList.remove('translate-y-full');
-                    overlay.classList.add('translate-y-0');
-                    if (icon) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-xmark');
-                    }
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    overlay.classList.remove('translate-y-0');
-                    overlay.classList.add('translate-y-full');
-                    if (icon) {
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                    }
-                    document.body.style.overflow = '';
-                }
-            }
-
-            if (btn) btn.addEventListener('click', toggleMenu);
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (isMenuOpen) toggleMenu();
-                });
-            });
-        });
+    <script src="main.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "T.P. Asharafali",
+      "url": "https://www.tpasharafali.com",
+      "jobTitle": "National General Secretary",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Indian Union Muslim League (IUMYL)"
+      },
+      "birthDate": "1982-05-12",
+      "birthPlace": "Edakkara, Nilambur, Kerala, India",
+      "email": "aliasharafali@gmail.com",
+      "telephone": "+91-9446946080",
+      "sameAs": [
+        "https://www.facebook.com/iumlkerala/",
+        "https://www.instagram.com/iumlkerala/"
+      ]
+    }
     </script>
 </body>
 
